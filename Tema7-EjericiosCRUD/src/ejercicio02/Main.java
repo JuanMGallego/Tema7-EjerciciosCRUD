@@ -13,7 +13,7 @@ public class Main {
 		
 		String prodBuscado;
 		
-		Gestisimal productos[] = null;
+		Gestisimal productos[] = new Gestisimal[0];
 
 		Scanner sc = new Scanner(System.in);
 		
@@ -40,23 +40,36 @@ public class Main {
 			
 				case 1 -> {
 					
-					while (productos.length == 0 || productos[contProductos].equals(null)) {
+					if (productos.length != 0) {
 						
-						System.out.println(productos[contProductos].toString());
+						while (productos.length == 0 || productos[contProductos].equals(null)) {
+							
+							System.out.println(productos[contProductos].toString());
+							
+							contProductos++;
+							
+						}
 						
-						contProductos++;
+						contProductos = 0;
+						
+					} else {
+						
+						System.out.println("La lista está vacía. No hay ningún producto.");
+						System.out.println();
 						
 					}
 					
-					contProductos = 0;
+					
 					
 				}
 				
 				case 2 -> {
-					
-					
+						
+					sc.nextLine();
 					
 					productos = Arrays.copyOf(productos, productos.length + 1);
+					
+					productos[productos.length - 1] = new Gestisimal();
 					
 					System.out.print("Introduzca el código del producto: ");
 					productos[productos.length - 1].setCodigo(sc.nextLine());
@@ -80,7 +93,7 @@ public class Main {
 					
 					System.out.println("*Producto añadido correctamente correctamente*");
 					System.out.println();
-					
+						
 				}
 				
 				case 3 -> {
@@ -92,6 +105,10 @@ public class Main {
 					for (int i = 0; i < productos.length; i++) {
 						
 						if (prodBuscado.equals(productos[i].getCodigo())) {
+							
+							System.arraycopy(productos, i, productos, i-1, productos.length - i);
+							
+							productos = Arrays.copyOf(productos, productos.length + 1);
 							
 							System.out.println("*El producto ha sido eliminado*");
 							
@@ -219,7 +236,71 @@ public class Main {
 				
 				case 5 -> {
 					
+					System.out.print("Introduzca el código del producto: ");
+					prodBuscado = sc.nextLine();
+					System.out.println();
 					
+					for (int i = 0; i < productos.length; i++) {
+						
+						if (prodBuscado.equals(productos[i].getCodigo())) {
+							
+							System.out.println("Introduzca la cantidad entrante: ");
+							productos[i].setStock(productos[i].getStock() + sc.nextInt());
+							
+							System.out.println("*Cantidad añadida al stock*");
+							System.out.println();
+							
+							break;
+							
+						}
+						
+						contProductos++;
+						
+					}
+					
+					if (contProductos == productos.length - 1) {
+						
+						System.out.println("*Código no encontrado*");
+						System.out.println();
+						
+					}
+					
+					contProductos = 0;
+					
+				}
+				
+				case 6 -> {
+					
+					System.out.print("Introduzca el código del producto: ");
+					prodBuscado = sc.nextLine();
+					System.out.println();
+					
+					for (int i = 0; i < productos.length; i++) {
+						
+						if (prodBuscado.equals(productos[i].getCodigo())) {
+							
+							System.out.println("Introduzca la cantidad saliente: ");
+							productos[i].setStock(productos[i].getStock() - sc.nextInt());
+							
+							System.out.println("*Cantidad eliminada del stock*");
+							System.out.println();
+							
+							break;
+							
+						}
+						
+						contProductos++;
+						
+					}
+					
+					if (contProductos == productos.length - 1) {
+						
+						System.out.println("*Código no encontrado*");
+						System.out.println();
+						
+					}
+					
+					contProductos = 0;
 					
 				}
 				
