@@ -71,7 +71,7 @@ public class Gestisimal {
 				"\nDescripción: " + desc + 
 				"\nPrecio de compra: " + precioCompra + 
 				"\nPrecio de venta: " + precioVenta + 
-				"\nUnidades: " + stock;
+				"\nUnidades: " + stock + "\n\n";
 	}
 	
 }

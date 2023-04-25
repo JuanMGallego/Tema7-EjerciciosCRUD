@@ -42,7 +42,7 @@ public class Main {
 					
 					if (productos.length != 0) {
 						
-						while (productos.length == 0 || productos[contProductos].equals(null)) {
+						while (productos.length != contProductos) {
 							
 							System.out.println(productos[contProductos].toString());
 							
@@ -75,19 +75,19 @@ public class Main {
 					productos[productos.length - 1].setCodigo(sc.nextLine());
 					System.out.println();
 					
-					System.out.println("Introduzca una descripción: ");
+					System.out.print("Introduzca una descripción: ");
 					productos[productos.length - 1].setDesc(sc.nextLine());
 					System.out.println();
 					
-					System.out.println("Introduzca un precio de compra");
+					System.out.print("Introduzca un precio de compra: ");
 					productos[productos.length - 1].setPrecioCompra(sc.nextDouble());
 					System.out.println();
 					
-					System.out.println("Introduzca un precio de venta: ");
+					System.out.print("Introduzca un precio de venta: ");
 					productos[productos.length - 1].setPrecioVenta(sc.nextDouble());
 					System.out.println();
 					
-					System.out.println("Introduzca el stock inicial: ");
+					System.out.print("Introduzca el stock inicial: ");
 					productos[productos.length - 1].setStock(sc.nextInt());
 					System.out.println();
 					
@@ -133,6 +133,8 @@ public class Main {
 				
 				case 4 -> {
 					
+					sc.nextLine();
+					
 					System.out.print("Introduzca el código del producto: ");
 					prodBuscado = sc.nextLine();
 					System.out.println();
@@ -157,6 +159,8 @@ public class Main {
 								
 								opcion = sc.nextInt();
 								
+								sc.nextLine();
+								
 								switch (opcion) {
 								
 									case 1 -> {
@@ -177,7 +181,7 @@ public class Main {
 									
 									case 3 -> {
 										
-										System.out.println("Introduzca un nuevo precio de compra");
+										System.out.print("Introduzca un nuevo precio de compra: ");
 										productos[i].setPrecioCompra(sc.nextDouble());
 										System.out.println();
 										
@@ -185,7 +189,7 @@ public class Main {
 									
 									case 4 -> {
 										
-										System.out.println("Introduzca un nuevo precio de venta: ");
+										System.out.print("Introduzca un nuevo precio de venta: ");
 										productos[i].setPrecioVenta(sc.nextDouble());
 										System.out.println();
 										
@@ -193,7 +197,7 @@ public class Main {
 									
 									case 5 -> {
 										
-										System.out.println("Introduzca un nuevo stock: ");
+										System.out.print("Introduzca un nuevo stock: ");
 										productos[i].setStock(sc.nextInt());
 										System.out.println();
 										
@@ -236,6 +240,8 @@ public class Main {
 				
 				case 5 -> {
 					
+					sc.nextLine();
+					
 					System.out.print("Introduzca el código del producto: ");
 					prodBuscado = sc.nextLine();
 					System.out.println();
@@ -270,6 +276,8 @@ public class Main {
 				}
 				
 				case 6 -> {
+					
+					sc.nextLine();
 					
 					System.out.print("Introduzca el código del producto: ");
 					prodBuscado = sc.nextLine();
